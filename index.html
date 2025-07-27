@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.6.0/moment-timezone-with-data-10-year-range.js"></script>
     <title>World Clock</title>
 </head>
 <body>
@@ -17,7 +19,7 @@
             <option value="">Tokyo</option>
         </select>
 
-        <div class="city">
+        <div class="city" id="los-angeles">
             <div>
             <h2>Los Angeles</h2>
             <div class="date">August 15th 2025</div>
@@ -26,6 +28,17 @@
             <div class="time">10:00 <small>AM</small></div>
             </div>
         </div>
+
+         <div class="city" id="paris">
+            <div>
+            <h2>Paris</h2>
+            <div class="date">August 15th 2025</div>
+            </div>
+            <div>
+            <div class="time">10:00 <small>AM</small></div>
+            </div>
+        </div>
+
     </div>
     <footer>This project was coded by <a href="https://github.com/enoksenco" target="_blank">Frida Enoksen</a> and is <a href="https://github.com/enoksenco/World-Clock-Project" target="_blank">open source on GitHub</a></footer>
 <script src="src/script.js"></script>
