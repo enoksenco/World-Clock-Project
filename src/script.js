@@ -20,5 +20,37 @@ parisTimeElement.innerHTML = `${parisTime.format("h:mm:ss [<small>]A[</small>]")
 
 }
 
+function updateCity(event) {
+  let cityTimeZone = event.target.value;
+  if (!cityTimeZone) return; // hvis ingen by er valgt
+
+  // Hent ut selve bynavnet (delen etter '/'), og erstatt '_' med mellomrom
+  let cityName = cityTimeZone.split("/")[1].replace(/_/g, " ");
+
+  let cityTime = moment().tz(cityTimeZone);
+  let citiesElement = document.querySelector("#cities");
+
+  citiesElement.innerHTML = `
+    <div class="city">
+      <div>
+        <h2>${cityName}</h2>
+        <div class="date">${cityTime.format("dddd MMMM Do YYYY")}</div>
+      </div>
+      <div>
+        <div class="time">
+          ${cityTime.format("h:mm:ss")} <small>${cityTime.format("A")}</small>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+
 updateTime();
 setInterval(updateTime, 1000);
+
+let citiesSelectElement = document.querySelector("#city");
+
+citiesSelectElement.addEventListener("change", updateCity);
+
+
