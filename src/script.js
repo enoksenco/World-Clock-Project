@@ -24,6 +24,10 @@ function updateCity(event) {
   let cityTimeZone = event.target.value;
   if (!cityTimeZone) return; // hvis ingen by er valgt
 
+   if (cityTimeZone === "current") {
+    cityTimeZone = moment.tz.guess();
+  }
+  
   // Hent ut selve bynavnet (delen etter '/'), og erstatt '_' med mellomrom
   let cityName = cityTimeZone.split("/")[1].replace(/_/g, " ");
 
@@ -44,7 +48,6 @@ function updateCity(event) {
     </div>
   `;
 }
-
 
 updateTime();
 setInterval(updateTime, 1000);
