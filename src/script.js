@@ -18,6 +18,15 @@ let parisTime = moment().tz("Europe/Paris");
 parisDateElement.innerHTML = parisTime.format("dddd MMMM Do YYYY");
 parisTimeElement.innerHTML = `${parisTime.format("h:mm:ss [<small>]A[</small>]")}`;
 
+//Oslo
+let osloElement = document.querySelector("#oslo");
+let osloDateElement = osloElement.querySelector(".date");
+let osloTimeElement = osloElement.querySelector(".time");
+let osloTime = moment().tz("Europe/Oslo");
+
+osloDateElement.innerHTML = osloTime.format("dddd MMMM Do YYYY");
+osloTimeElement.innerHTML = `${osloTime.format("h:mm:ss [<small>]A[</small>]")}`;
+
 }
 
 function updateCity(event) {
@@ -27,7 +36,7 @@ function updateCity(event) {
    if (cityTimeZone === "current") {
     cityTimeZone = moment.tz.guess();
   }
-  
+
   // Hent ut selve bynavnet (delen etter '/'), og erstatt '_' med mellomrom
   let cityName = cityTimeZone.split("/")[1].replace(/_/g, " ");
 
